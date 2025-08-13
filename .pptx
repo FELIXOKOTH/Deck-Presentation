@@ -61,7 +61,7 @@ add_slide("Business Model", [
 
 # Slide 6 – Traction / Validation
 add_slide("Traction / Validation", [
-    "Prototype backend complete; frontend under development.",
+    "Prototype backend complete; frontend also has been developed.",
     "Partnership discussions with Safaricom/Airtel for SMS delivery.",
     "Featured under Greenpeace Africa Youth & Volunteer Program.",
     "Positive early feedback from 10 pilot businesses."
