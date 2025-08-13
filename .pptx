@@ -1,0 +1,105 @@
+from pptx import Presentation
+from pptx.util import Inches, Pt
+from pptx.enum.text import PP_ALIGN
+from pptx.dml.color import RGBColor
+
+# Create a new presentation
+prs = Presentation()
+
+# Helper function to add a slide with title and bullet points
+def add_slide(title, bullets):
+    slide_layout = prs.slide_layouts[1]  # Title and Content
+    slide = prs.slides.add_slide(slide_layout)
+    slide.shapes.title.text = title
+    body_shape = slide.shapes.placeholders[1]
+    tf = body_shape.text_frame
+    tf.clear()
+    for bullet in bullets:
+        p = tf.add_paragraph()
+        p.text = bullet
+        p.font.size = Pt(14)
+        p.font.name = 'Calibri'
+    return slide
+
+# Slide 1 – Title Slide
+slide_layout = prs.slide_layouts[0]
+slide = prs.slides.add_slide(slide_layout)
+slide.shapes.title.text = "StarSon POS\nThe Green POS System Saving Trees, One Receipt at a Time"
+subtitle = slide.placeholders[1]
+subtitle.text = "Felix Okoth Otieno – Founder & Head of Innovation\nVenture Wars Pitch Competition – August 20, 2025"
+
+# Slide 2 – Problem Statement
+add_slide("Problem Statement", [
+    "80% of businesses still rely on paper receipts – wasting trees, harming the environment, and increasing costs.",
+    "One tree = 8,333–8,500 receipts before being cut down.",
+    "Most POS systems lack eco-friendly features and environmental tracking."
+])
+
+# Slide 3 – Solution
+add_slide("Solution", [
+    "StarSon POS: Secure, eco-friendly, AI-ready point-of-sale system.",
+    "Delivers receipts via SMS, email, or QR code.",
+    "Tracks trees saved with each transaction.",
+    "Integrates with sustainability platforms like MITI PESA.",
+    "Modular, scalable, adaptable for any business size."
+])
+
+# Slide 4 – Market Opportunity
+add_slide("Market Opportunity", [
+    "TAM: $48B global POS market by 2030.",
+    "SAM: $3B market in East Africa’s retail & hospitality sector.",
+    "SOM: Focus on 20,000+ SMEs in Kenya transitioning to digital payments.",
+    "Government support for paperless, eco-conscious operations."
+])
+
+# Slide 5 – Business Model
+add_slide("Business Model", [
+    "Licensing model: Subscription per business per month.",
+    "Add-ons: SMS credits, premium analytics, API integration.",
+    "Eco partnerships: Revenue share from tree planting credits."
+])
+
+# Slide 6 – Traction / Validation
+add_slide("Traction / Validation", [
+    "Prototype backend complete; frontend under development.",
+    "Partnership discussions with Safaricom/Airtel for SMS delivery.",
+    "Featured under Greenpeace Africa Youth & Volunteer Program.",
+    "Positive early feedback from 10 pilot businesses."
+])
+
+# Slide 7 – Competitive Advantage
+add_slide("Competitive Advantage", [
+    "Eco-impact tracking – first POS in East Africa with live tree-saving stats.",
+    "Integration-ready – embeds into existing POS platforms.",
+    "Security-first architecture – backend protected against theft and breaches."
+])
+
+# Slide 8 – Go-to-Market Strategy
+add_slide("Go-to-Market Strategy", [
+    "Phase 1: Pilot rollout in Nairobi & Kisumu with eco-conscious SMEs.",
+    "Phase 2: Partnerships with retail hardware suppliers & telcos.",
+    "Phase 3: Expansion to other East African markets with carbon-credit integration."
+])
+
+# Slide 9 – The Ask
+add_slide("The Ask", [
+    "Seeking KES 2.5M (~$20K) for development, IP, and launch.",
+    "Funding allocation:",
+    "  - 40% development & hosting",
+    "  - 30% marketing & pilot onboarding",
+    "  - 20% IP & compliance",
+    "  - 10% operations"
+])
+
+# Slide 10 – Closing
+add_slide("Closing / Thank You", [
+    "With StarSon POS, every sale saves a tree.",
+    "Let’s grow business and the planet together.",
+    "Contact: okotieya404@gmail.com | +254 799 341 083 | www.brightarm.co.ke"
+])
+
+# Save the presentation
+pptx_path = "/mnt/data/StarSon_POS_Venture_Wars_Pitch_Deck.pptx"
+prs.save(pptx_path)
+
+pptx_path
